@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hestia.Core", "src\Hestia.Core.csproj", "{BC1D7500-DA55-4021-B9A8-D29F2D9DC013}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hestia.Core.Tests", "tests\Hestia.Core.Tests.csproj", "{58438306-C4A0-4EA4-ABEC-2FE6C447CE3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC1D7500-DA55-4021-B9A8-D29F2D9DC013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1D7500-DA55-4021-B9A8-D29F2D9DC013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1D7500-DA55-4021-B9A8-D29F2D9DC013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1D7500-DA55-4021-B9A8-D29F2D9DC013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58438306-C4A0-4EA4-ABEC-2FE6C447CE3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58438306-C4A0-4EA4-ABEC-2FE6C447CE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58438306-C4A0-4EA4-ABEC-2FE6C447CE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58438306-C4A0-4EA4-ABEC-2FE6C447CE3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED33F5E4-B364-4B84-AD47-3A59EF72DD69}
+	EndGlobalSection
+EndGlobal
