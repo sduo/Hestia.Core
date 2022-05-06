@@ -1,9 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace Hestia.Core.Tests.Utility
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public sealed class RegisterProvider
     {
         static RegisterProvider()

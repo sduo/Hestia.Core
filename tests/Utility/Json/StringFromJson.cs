@@ -1,10 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Hestia.Core.Tests.Utility.Json
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public sealed class StringFromJson
     {
         public record Model

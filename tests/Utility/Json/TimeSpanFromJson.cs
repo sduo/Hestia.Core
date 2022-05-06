@@ -1,11 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Hestia.Core.Tests.Utility.Json
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public sealed class TimeSpanFromJson
     {
         public record Model
@@ -37,7 +39,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test4()
         {
-            TimeSpan? value = TimeSpan.MinValue;
+            TimeSpan value = TimeSpan.MinValue;
             Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:G}\"}}");
             Assert.AreEqual(value, model.Value);
         }
@@ -45,23 +47,23 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test5()
         {
-            TimeSpan? value = TimeSpan.MinValue;
-            TimeSpan?[] array = Core.Utility.FromJson<TimeSpan?[]>($"[\"{value:G}\"]");
+            TimeSpan value = TimeSpan.MinValue;
+            TimeSpan[] array = Core.Utility.FromJson<TimeSpan[]>($"[\"{value:G}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test6()
         {
-            TimeSpan? value = TimeSpan.MinValue;
-            List<TimeSpan?> list = Core.Utility.FromJson<List<TimeSpan?>>($"[\"{value:G}\"]");
+            TimeSpan value = TimeSpan.MinValue;
+            List<TimeSpan> list = Core.Utility.FromJson<List<TimeSpan>>($"[\"{value:G}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
 
         [TestMethod]
         public void Test7()
         {
-            TimeSpan? value = TimeSpan.MaxValue;
+            TimeSpan value = TimeSpan.MaxValue;
             Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:G}\"}}");
             Assert.AreEqual(value, model.Value);
         }
@@ -69,16 +71,16 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test8()
         {
-            TimeSpan? value = TimeSpan.MaxValue;
-            TimeSpan?[] array = Core.Utility.FromJson<TimeSpan?[]>($"[\"{value:G}\"]");
+            TimeSpan value = TimeSpan.MaxValue;
+            TimeSpan[] array = Core.Utility.FromJson<TimeSpan[]>($"[\"{value:G}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test9()
         {
-            TimeSpan? value = TimeSpan.MaxValue;
-            List<TimeSpan?> list = Core.Utility.FromJson<List<TimeSpan?>>($"[\"{value:G}\"]");
+            TimeSpan value = TimeSpan.MaxValue;
+            List<TimeSpan> list = Core.Utility.FromJson<List<TimeSpan>>($"[\"{value:G}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
     }

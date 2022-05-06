@@ -1,9 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Hestia.Core.Tests.Extensions.IListExtensions
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public sealed class At
     {
         internal List<string> nullClassList = null;

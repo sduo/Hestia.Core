@@ -1,8 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Hestia.Core.Tests.Extensions.StringExtensions
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public sealed class ToBoolean
     {
         [TestMethod]

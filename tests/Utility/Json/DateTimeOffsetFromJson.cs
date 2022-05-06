@@ -8,11 +8,11 @@ namespace Hestia.Core.Tests.Utility.Json
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
-    public sealed class DateTimeFromJson
+    public sealed class DateTimeOffsetFromJson
     {
         public record Model
         {
-            public DateTime? Value { get; set; }
+            public DateTimeOffset? Value { get; set; }
         }
 
         [TestMethod]
@@ -25,21 +25,21 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test2()
         {
-            DateTime?[] array = Core.Utility.FromJson<DateTime?[]>($"[null]");
+            DateTimeOffset?[] array = Core.Utility.FromJson<DateTimeOffset?[]>($"[null]");
             Assert.IsTrue(array.All(x => x == null));
         }
 
         [TestMethod]
         public void Test3()
         {
-            List<DateTime?> list = Core.Utility.FromJson<List<DateTime?>>($"[null]");
+            List<DateTimeOffset?> list = Core.Utility.FromJson<List<DateTimeOffset?>>($"[null]");
             Assert.IsTrue(list.All(x => x == null));
         }
 
         [TestMethod]
         public void Test4()
         {
-            DateTime value = DateTime.Now;
+            DateTimeOffset value = DateTimeOffset.Now.ToLocalTime();
             Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"}}");
             Assert.AreEqual(value, model.Value);
         }
@@ -47,23 +47,23 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test5()
         {
-            DateTime value = DateTime.Now;
-            DateTime[] array = Core.Utility.FromJson<DateTime[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
+            DateTimeOffset value = DateTimeOffset.Now.ToLocalTime();
+            DateTimeOffset[] array = Core.Utility.FromJson<DateTimeOffset[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test6()
         {
-            DateTime value = DateTime.Now;
-            List<DateTime> list = Core.Utility.FromJson<List<DateTime>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
+            DateTimeOffset value = DateTimeOffset.Now.ToLocalTime();
+            List<DateTimeOffset> list = Core.Utility.FromJson<List<DateTimeOffset>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
 
         [TestMethod]
         public void Test7()
         {
-            DateTime value = DateTime.MinValue;
+            DateTimeOffset value = DateTimeOffset.MinValue.ToLocalTime();
             Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"}}");
             Assert.AreEqual(value, model.Value);
         }
@@ -71,23 +71,23 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test8()
         {
-            DateTime value = DateTime.MinValue;
-            DateTime[] array = Core.Utility.FromJson<DateTime[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
+            DateTimeOffset value = DateTimeOffset.MinValue.ToLocalTime();
+            DateTimeOffset[] array = Core.Utility.FromJson<DateTimeOffset[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test9()
         {
-            DateTime value = DateTime.MinValue;
-            List<DateTime> list = Core.Utility.FromJson<List<DateTime>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
+            DateTimeOffset value = DateTimeOffset.MinValue.ToLocalTime();
+            List<DateTimeOffset> list = Core.Utility.FromJson<List<DateTimeOffset>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
 
         [TestMethod]
         public void Test10()
         {
-            DateTime value = DateTime.MaxValue;
+            DateTimeOffset value = DateTimeOffset.MaxValue.ToLocalTime();
             Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"}}");
             Assert.AreEqual(value, model.Value);
         }
@@ -95,16 +95,16 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test11()
         {
-            DateTime value = DateTime.MaxValue;
-            DateTime[] array = Core.Utility.FromJson<DateTime[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
+            DateTimeOffset value = DateTimeOffset.MaxValue.ToLocalTime();
+            DateTimeOffset[] array = Core.Utility.FromJson<DateTimeOffset[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test12()
         {
-            DateTime value = DateTime.MaxValue;
-            List<DateTime> list = Core.Utility.FromJson<List<DateTime>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
+            DateTimeOffset value = DateTimeOffset.MaxValue.ToLocalTime();
+            List<DateTimeOffset> list = Core.Utility.FromJson<List<DateTimeOffset>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
     }

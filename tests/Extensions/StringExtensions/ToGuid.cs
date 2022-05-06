@@ -1,9 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Hestia.Core.Tests.Extensions.StringExtensions
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public sealed class ToGuid
     {
         [TestMethod]

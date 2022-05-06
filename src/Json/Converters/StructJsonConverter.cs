@@ -20,13 +20,13 @@ namespace Hestia.Core.Json.Converters
         public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if(Parser == null) { throw new NotImplementedException(); }
-            return Parser.Invoke(reader.GetString()) ?? throw new Exception();
+            return Parser.Invoke(reader.GetString()) ?? throw new InvalidCastException();
         }
 
         public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
         {
             if(Formatter == null) { throw new NotImplementedException(); }
-            writer.WriteStringValue(Formatter.Invoke(value));
+            writer.WriteStringValue(Formatter.Invoke(value) ?? throw new InvalidCastException());
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Hestia.Core.Tests.Utility.Json
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public sealed class DateOnlyToJson
     {
         [TestMethod]

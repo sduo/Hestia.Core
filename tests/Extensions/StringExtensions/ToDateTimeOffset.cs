@@ -39,14 +39,14 @@ namespace Hestia.Core.Tests.Extensions.StringExtensions
         [TestMethod]
         public void Test6()
         {
-            DateTimeOffset now = DateTimeOffset.Now;            
+            DateTimeOffset now = DateTimeOffset.Now.ToLocalTime();            
             Assert.AreEqual(now, $"{now:yyyy-MM-dd HH:mm:ss.fffffff}".ToDateTimeOffset());
         }
 
         [TestMethod]
         public void Test7()
         {
-            DateTimeOffset now = DateTimeOffset.Now;
+            DateTimeOffset now = DateTimeOffset.Now.ToLocalTime();
             Assert.AreEqual(now, $"{now:yyyyMMddHHmmssfffffff}".ToDateTimeOffset());
         }        
     }
