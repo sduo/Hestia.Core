@@ -1,15 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Hestia.Core.Tests.Utility.Json
 {
     [TestClass]
-    public sealed class IntFromJson
+    public sealed class DateTimeFromJson
     {
         public record Model
         {
-            public int? Value { get; set; }
+            public DateTime? Value { get; set; }
         }
 
         [TestMethod]
@@ -22,86 +23,86 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test2()
         {
-            int?[] array = Core.Utility.FromJson<int?[]>($"[null]");
+            DateTime?[] array = Core.Utility.FromJson<DateTime?[]>($"[null]");
             Assert.IsTrue(array.All(x => x == null));
         }
 
         [TestMethod]
         public void Test3()
         {
-            List<int?> list = Core.Utility.FromJson<List<int?>>($"[null]");
+            List<DateTime?> list = Core.Utility.FromJson<List<DateTime?>>($"[null]");
             Assert.IsTrue(list.All(x => x == null));
         }
 
         [TestMethod]
         public void Test4()
         {
-            int? value = 123;
-            Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":{value}}}");
+            DateTime? value = DateTime.Now;
+            Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"}}");
             Assert.AreEqual(value, model.Value);
         }
 
         [TestMethod]
         public void Test5()
         {
-            int? value = 123;
-            int?[] array = Core.Utility.FromJson<int?[]>($"[{value}]");
+            DateTime? value = DateTime.Now;
+            DateTime?[] array = Core.Utility.FromJson<DateTime?[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test6()
         {
-            int? value = 123;
-            List<int?> list = Core.Utility.FromJson<List<int?>>($"[{value}]");
+            DateTime? value = DateTime.Now;
+            List<DateTime?> list = Core.Utility.FromJson<List<DateTime?>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
 
         [TestMethod]
         public void Test7()
         {
-            int? value = int.MinValue;
-            Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":{value}}}");
+            DateTime? value = DateTime.MinValue;
+            Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"}}");
             Assert.AreEqual(value, model.Value);
         }
 
         [TestMethod]
         public void Test8()
         {
-            int? value = int.MinValue;
-            int?[] array = Core.Utility.FromJson<int?[]>($"[{value}]");
+            DateTime? value = DateTime.MinValue;
+            DateTime?[] array = Core.Utility.FromJson<DateTime?[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test9()
         {
-            int? value = int.MinValue;
-            List<int?> list = Core.Utility.FromJson<List<int?>>($"[{value}]");
+            DateTime? value = DateTime.MinValue;
+            List<DateTime?> list = Core.Utility.FromJson<List<DateTime?>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
 
         [TestMethod]
         public void Test10()
         {
-            int? value = int.MaxValue;
-            Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":{value}}}");
+            DateTime? value = DateTime.MaxValue;
+            Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"}}");
             Assert.AreEqual(value, model.Value);
         }
 
         [TestMethod]
         public void Test11()
         {
-            int? value = int.MaxValue;
-            int?[] array = Core.Utility.FromJson<int?[]>($"[{value}]");
+            DateTime? value = DateTime.MaxValue;
+            DateTime?[] array = Core.Utility.FromJson<DateTime?[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(array.All(x => x == value));
         }
 
         [TestMethod]
         public void Test12()
         {
-            int? value = int.MaxValue;
-            List<int?> list = Core.Utility.FromJson<List<int?>>($"[{value}]");
+            DateTime? value = DateTime.MaxValue;
+            List<DateTime?> list = Core.Utility.FromJson<List<DateTime?>>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]");
             Assert.IsTrue(list.All(x => x == value));
         }
     }
