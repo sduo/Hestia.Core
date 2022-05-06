@@ -11,7 +11,7 @@ namespace Hestia.Core.Tests.Utility.Json
         {
             int? number = null;
             Assert.AreEqual($"{{\"{nameof(number)}\":null}}", Core.Utility.ToJson(new { number }));
-        }
+        }        
 
         [TestMethod]
         public void Test2()
