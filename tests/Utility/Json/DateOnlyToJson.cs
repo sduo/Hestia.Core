@@ -10,64 +10,64 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test1()
         {
-            DateOnly? dt = null;
-            Assert.AreEqual($"{{\"{nameof(dt)}\":null}}", Core.Utility.ToJson(new { dt }));
+            DateOnly? value = null;
+            Assert.AreEqual($"{{\"{nameof(value)}\":null}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test2()
         {
-            DateOnly? dt = null;
-            Assert.AreEqual($"[null]", Core.Utility.ToJson(new DateOnly?[] { dt }));
+            DateOnly? value = null;
+            Assert.AreEqual($"[null]", Core.Utility.ToJson(new DateOnly?[] { value }));
         }
 
         [TestMethod]
         public void Test3()
         {
-            DateOnly? dt = null;
-            Assert.AreEqual($"[null]", Core.Utility.ToJson(new List<DateOnly?> { dt }));
+            DateOnly? value = null;
+            Assert.AreEqual($"[null]", Core.Utility.ToJson(new List<DateOnly?> { value }));
         }
 
         [TestMethod]
         public void Test4()
         {
-            DateOnly? dt = DateOnly.MinValue;
-            Assert.AreEqual($"{{\"{nameof(dt)}\":\"{dt:yyyy-MM-dd}\"}}", Core.Utility.ToJson(new { dt }));
+            DateOnly? value = DateOnly.MinValue;
+            Assert.AreEqual($"{{\"{nameof(value)}\":\"{value:yyyy-MM-dd}\"}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test5()
         {
-            DateOnly? dt = DateOnly.MinValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd}\"]", Core.Utility.ToJson(new DateOnly?[] { dt }));
+            DateOnly? value = DateOnly.MinValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd}\"]", Core.Utility.ToJson(new DateOnly?[] { value }));
         }
 
         [TestMethod]
         public void Test6()
         {
-            DateOnly? dt = DateOnly.MinValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd}\"]", Core.Utility.ToJson(new List<DateOnly?> { dt }));
+            DateOnly? value = DateOnly.MinValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd}\"]", Core.Utility.ToJson(new List<DateOnly?> { value }));
         }
 
         [TestMethod]
         public void Test7()
         {
-            DateOnly? dt = DateOnly.MaxValue;
-            Assert.AreEqual($"{{\"{nameof(dt)}\":\"{dt:yyyy-MM-dd}\"}}", Core.Utility.ToJson(new { dt }));
+            DateOnly? value = DateOnly.MaxValue;
+            Assert.AreEqual($"{{\"{nameof(value)}\":\"{value:yyyy-MM-dd}\"}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test8()
         {
-            DateOnly? dt = DateOnly.MaxValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd}\"]", Core.Utility.ToJson(new DateOnly?[] { dt }));
+            DateOnly? value = DateOnly.MaxValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd}\"]", Core.Utility.ToJson(new DateOnly?[] { value }));
         }
 
         [TestMethod]
         public void Test9()
         {
-            DateOnly? dt = DateOnly.MaxValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd}\"]", Core.Utility.ToJson(new List<DateOnly?> { dt }));
+            DateOnly? value = DateOnly.MaxValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd}\"]", Core.Utility.ToJson(new List<DateOnly?> { value }));
         }
     }
 }

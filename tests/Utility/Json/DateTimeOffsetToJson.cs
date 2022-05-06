@@ -10,85 +10,85 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test1()
         {
-            DateTimeOffset? dt = null;
-            Assert.AreEqual($"{{\"{nameof(dt)}\":null}}", Core.Utility.ToJson(new { dt }));
+            DateTimeOffset? value = null;
+            Assert.AreEqual($"{{\"{nameof(value)}\":null}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test2()
         {
-            DateTimeOffset? dt = null;
-            Assert.AreEqual($"[null]", Core.Utility.ToJson(new DateTimeOffset?[] { dt }));
+            DateTimeOffset? value = null;
+            Assert.AreEqual($"[null]", Core.Utility.ToJson(new DateTimeOffset?[] { value }));
         }
 
         [TestMethod]
         public void Test3()
         {
-            DateTimeOffset? dt = null;
-            Assert.AreEqual($"[null]", Core.Utility.ToJson(new List<DateTimeOffset?> { dt }));
+            DateTimeOffset? value = null;
+            Assert.AreEqual($"[null]", Core.Utility.ToJson(new List<DateTimeOffset?> { value }));
         }
 
         [TestMethod]
         public void Test4()
         {
-            DateTimeOffset? dt = DateTimeOffset.Now;
-            Assert.AreEqual($"{{\"{nameof(dt)}\":\"{dt:yyyy-MM-dd HH:mm:ss}\"}}", Core.Utility.ToJson(new { dt }));
+            DateTimeOffset? value = DateTimeOffset.Now;
+            Assert.AreEqual($"{{\"{nameof(value)}\":\"{value:yyyy-MM-dd HH:mm:ss}\"}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test5()
         {
-            DateTimeOffset? dt = DateTimeOffset.Now;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new DateTimeOffset?[] { dt }));
+            DateTimeOffset? value = DateTimeOffset.Now;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new DateTimeOffset?[] { value }));
         }
 
         [TestMethod]
         public void Test6()
         {
-            DateTimeOffset? dt = DateTimeOffset.Now;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new List<DateTimeOffset?> { dt }));
+            DateTimeOffset? value = DateTimeOffset.Now;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new List<DateTimeOffset?> { value }));
         }
 
         [TestMethod]
         public void Test7()
         {
-            DateTimeOffset? dt = DateTimeOffset.MinValue;
-            Assert.AreEqual($"{{\"{nameof(dt)}\":\"{dt:yyyy-MM-dd HH:mm:ss}\"}}", Core.Utility.ToJson(new { dt }));
+            DateTimeOffset? value = DateTimeOffset.MinValue;
+            Assert.AreEqual($"{{\"{nameof(value)}\":\"{value:yyyy-MM-dd HH:mm:ss}\"}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test8()
         {
-            DateTimeOffset? dt = DateTimeOffset.MinValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new DateTimeOffset?[] { dt }));
+            DateTimeOffset? value = DateTimeOffset.MinValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new DateTimeOffset?[] { value }));
         }
 
         [TestMethod]
         public void Test9()
         {
-            DateTimeOffset? dt = DateTimeOffset.MinValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new List<DateTimeOffset?> { dt }));
+            DateTimeOffset? value = DateTimeOffset.MinValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new List<DateTimeOffset?> { value }));
         }
 
         [TestMethod]
         public void Test10()
         {
-            DateTimeOffset? dt = DateTimeOffset.MaxValue;
-            Assert.AreEqual($"{{\"{nameof(dt)}\":\"{dt:yyyy-MM-dd HH:mm:ss}\"}}", Core.Utility.ToJson(new { dt }));
+            DateTimeOffset? value = DateTimeOffset.MaxValue;
+            Assert.AreEqual($"{{\"{nameof(value)}\":\"{value:yyyy-MM-dd HH:mm:ss}\"}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test11()
         {
-            DateTimeOffset? dt = DateTimeOffset.MaxValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new DateTimeOffset?[] { dt }));
+            DateTimeOffset? value = DateTimeOffset.MaxValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new DateTimeOffset?[] { value }));
         }
 
         [TestMethod]
         public void Test12()
         {
-            DateTimeOffset? dt = DateTimeOffset.MaxValue;
-            Assert.AreEqual($"[\"{dt:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new List<DateTimeOffset?> { dt }));
+            DateTimeOffset? value = DateTimeOffset.MaxValue;
+            Assert.AreEqual($"[\"{value:yyyy-MM-dd HH:mm:ss}\"]", Core.Utility.ToJson(new List<DateTimeOffset?> { value }));
         }
     }
 }

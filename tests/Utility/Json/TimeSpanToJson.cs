@@ -10,64 +10,64 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test1()
         {
-            TimeSpan? ts = null;
-            Assert.AreEqual($"{{\"{nameof(ts)}\":null}}", Core.Utility.ToJson(new { ts }));
+            TimeSpan? value = null;
+            Assert.AreEqual($"{{\"{nameof(value)}\":null}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test2()
         {
-            TimeSpan? ts = null;
-            Assert.AreEqual($"[null]", Core.Utility.ToJson(new TimeSpan?[] { ts }));
+            TimeSpan? value = null;
+            Assert.AreEqual($"[null]", Core.Utility.ToJson(new TimeSpan?[] { value }));
         }
 
         [TestMethod]
         public void Test3()
         {
-            TimeSpan? ts = null;
-            Assert.AreEqual($"[null]", Core.Utility.ToJson(new List<TimeSpan?> { ts }));
+            TimeSpan? value = null;
+            Assert.AreEqual($"[null]", Core.Utility.ToJson(new List<TimeSpan?> { value }));
         }
 
         [TestMethod]
         public void Test4()
         {
-            TimeSpan? ts = TimeSpan.MinValue;
-            Assert.AreEqual($"{{\"{nameof(ts)}\":\"{ts:G}\"}}", Core.Utility.ToJson(new { ts }));
+            TimeSpan? value = TimeSpan.MinValue;
+            Assert.AreEqual($"{{\"{nameof(value)}\":\"{value:G}\"}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test5()
         {
-            TimeSpan? ts = TimeSpan.MinValue;
-            Assert.AreEqual($"[\"{ts:G}\"]", Core.Utility.ToJson(new TimeSpan?[] { ts }));
+            TimeSpan? value = TimeSpan.MinValue;
+            Assert.AreEqual($"[\"{value:G}\"]", Core.Utility.ToJson(new TimeSpan?[] { value }));
         }
 
         [TestMethod]
         public void Test6()
         {
-            TimeSpan? ts = TimeSpan.MinValue;
-            Assert.AreEqual($"[\"{ts:G}\"]", Core.Utility.ToJson(new List<TimeSpan?> { ts }));
+            TimeSpan? value = TimeSpan.MinValue;
+            Assert.AreEqual($"[\"{value:G}\"]", Core.Utility.ToJson(new List<TimeSpan?> { value }));
         }
 
         [TestMethod]
         public void Test7()
         {
-            TimeSpan? ts = TimeSpan.MaxValue;
-            Assert.AreEqual($"{{\"{nameof(ts)}\":\"{ts:G}\"}}", Core.Utility.ToJson(new { ts }));
+            TimeSpan? value = TimeSpan.MaxValue;
+            Assert.AreEqual($"{{\"{nameof(value)}\":\"{value:G}\"}}", Core.Utility.ToJson(new { value }));
         }
 
         [TestMethod]
         public void Test8()
         {
-            TimeSpan? ts = TimeSpan.MaxValue;
-            Assert.AreEqual($"[\"{ts:G}\"]", Core.Utility.ToJson(new TimeSpan?[] { ts }));
+            TimeSpan? value = TimeSpan.MaxValue;
+            Assert.AreEqual($"[\"{value:G}\"]", Core.Utility.ToJson(new TimeSpan?[] { value }));
         }
 
         [TestMethod]
         public void Test9()
         {
-            TimeSpan? ts = TimeSpan.MaxValue;
-            Assert.AreEqual($"[\"{ts:G}\"]", Core.Utility.ToJson(new List<TimeSpan?> { ts }));
+            TimeSpan? value = TimeSpan.MaxValue;
+            Assert.AreEqual($"[\"{value:G}\"]", Core.Utility.ToJson(new List<TimeSpan?> { value }));
         }
     }
 }
