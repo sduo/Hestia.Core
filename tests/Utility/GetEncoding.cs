@@ -27,13 +27,13 @@ namespace Hestia.Core.Tests.Utility
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual(Encoding.Default.CodePage, Core.Utility.GetEncoding(null).CodePage);
+            Assert.AreEqual(null, Core.Utility.GetEncoding(null));
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreEqual(Encoding.Default.CodePage, Core.Utility.GetEncoding(string.Empty).CodePage);
+            Assert.AreEqual(Encoding.UTF8.CodePage, Core.Utility.GetEncoding(string.Empty,Encoding.UTF8).CodePage);
         }
 
         [TestMethod]
