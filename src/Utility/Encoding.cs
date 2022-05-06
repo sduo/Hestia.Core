@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Hestia.Core
 {
-    public static class Utility
+    public static partial class Utility
     {
         public static void RegisterProvider()
         {
@@ -41,5 +38,7 @@ namespace Hestia.Core
                 return @default;
             }
         }
+
+
     }
 }
