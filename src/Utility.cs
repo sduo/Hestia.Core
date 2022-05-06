@@ -13,7 +13,7 @@ namespace Hestia.Core
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
 
-        public static Encoding GetEncoding(int codepage)
+        public static Encoding GetEncoding(int codepage = 0)
         {
             try
             {
@@ -29,8 +29,9 @@ namespace Hestia.Core
             }
         }
 
-        public static Encoding GetEncoding(string name)
+        public static Encoding GetEncoding(string name = null)
         {
+            if (string.IsNullOrEmpty(name)) { return Encoding.Default; }
             try
             {
                 return Encoding.GetEncoding(name);

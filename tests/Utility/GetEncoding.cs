@@ -9,37 +9,57 @@ namespace Hestia.Core.Tests.Utility
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Encoding.UTF8.CodePage, Core.Utility.GetEncoding(Encoding.UTF8.CodePage).CodePage);
+            Assert.AreEqual(Encoding.Default.CodePage, Core.Utility.GetEncoding(0).CodePage);
         }
 
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual(Encoding.UTF8.CodePage, Core.Utility.GetEncoding(Encoding.UTF8.WebName).CodePage);
+            Assert.AreEqual(Encoding.UTF8.CodePage, Core.Utility.GetEncoding(Encoding.UTF8.CodePage).CodePage);
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual(null,Core.Utility.GetEncoding("gb"));
-        }        
+            Assert.AreEqual(Encoding.UTF8.CodePage, Core.Utility.GetEncoding(Encoding.UTF8.WebName).CodePage);
+        }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual(null, Core.Utility.GetEncoding(int.MinValue));
+            Assert.AreEqual(Encoding.Default.CodePage, Core.Utility.GetEncoding(null).CodePage);
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreEqual(null, Core.Utility.GetEncoding(int.MaxValue));
+            Assert.AreEqual(Encoding.Default.CodePage, Core.Utility.GetEncoding(string.Empty).CodePage);
         }
 
         [TestMethod]
         public void Test6()
         {
+            Assert.AreEqual(null, Core.Utility.GetEncoding("abc"));
+        }
+
+        [TestMethod]
+        public void Test7()
+        {
             Assert.AreEqual(null, Core.Utility.GetEncoding(65535));
         }
+
+        [TestMethod]
+        public void Test8()
+        {
+            Assert.AreEqual(null, Core.Utility.GetEncoding(int.MinValue));
+        }
+
+        [TestMethod]
+        public void Test9()
+        {
+            Assert.AreEqual(null, Core.Utility.GetEncoding(int.MaxValue));
+        }
+
+        
     }
 }
