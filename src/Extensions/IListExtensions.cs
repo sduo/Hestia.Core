@@ -2,7 +2,7 @@
 
 namespace Hestia.Core
 {
-    public static class AtClassExtensions
+    public static class IListExtensions
     {
         public static T At<T>(this IList<T> list, int index=0) where T : class 
         {

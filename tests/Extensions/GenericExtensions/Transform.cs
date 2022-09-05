@@ -1,9 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace Hestia.Core.Tests.Utility.String
+namespace Hestia.Core.Tests.Extensions.GenericExtensions
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
@@ -17,33 +18,36 @@ namespace Hestia.Core.Tests.Utility.String
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Source, Core.Utility.Transform(Source, decoder, encoder));
+            Assert.AreEqual(Source, Source.Transform(decoder).Transform(encoder));
         }
 
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual(string.Empty, Core.Utility.Transform(string.Empty, decoder, encoder));
+            Assert.AreEqual(string.Empty, string.Empty.Transform(decoder).Transform(encoder));
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Test3()
         {
-            Assert.AreEqual(null, Core.Utility.Transform(null, decoder, encoder));
+            string source = null;
+            source.Transform(decoder);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Test4()
         {
-            Core.Utility.Transform(Source, null, encoder);
+            byte[] source = null;
+            source.Transform(encoder);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Test5()
         {
-            Core.Utility.Transform(Source, decoder, null);
+            Source.Transform<string, string>(null);
         }
     }
 }
