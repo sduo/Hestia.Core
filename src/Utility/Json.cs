@@ -39,6 +39,15 @@ namespace Hestia.Core
             options.Converters.Add(TimeSpanJsonConverter);
         }
 
+        public static JsonElement? GetJsonElement(JsonElement? json, string property, JsonValueKind? kind)
+        {
+            if (json is null) { return null; }
+            if (string.IsNullOrEmpty(property)) { return null; }
+            if (!json.Value.TryGetProperty(property, out var value)) { return null; }
+            if (kind.HasValue && value.ValueKind != kind.Value) { return null; }
+            return value;
+        }
+
         public static string ToJson<T>(T obj, JsonSerializerOptions options = null)
         {
             return JsonSerializer.Serialize(obj, options ?? DefaultJsonSerializerOptions);
