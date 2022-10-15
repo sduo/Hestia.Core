@@ -18,16 +18,25 @@ namespace Hestia.Core
 
         static Utility()
         {
-            DefaultJsonSerializerOptions = new()
-            {
-                DefaultIgnoreCondition = JsonIgnoreCondition.Never,
-                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-            };
-            DefaultJsonSerializerOptions.Converters.Add(DateTimeJsonConverter);
-            DefaultJsonSerializerOptions.Converters.Add(DateTimeOffsetJsonConverter);
-            DefaultJsonSerializerOptions.Converters.Add(DateOnlyJsonConverter);
-            DefaultJsonSerializerOptions.Converters.Add(TimeOnlyJsonConverter);
-            DefaultJsonSerializerOptions.Converters.Add(TimeSpanJsonConverter);
+            DefaultJsonSerializerOptions = new();
+            SetDefaultJsonSerializerOptions(DefaultJsonSerializerOptions);            
+        }
+
+        public static void SetDefaultJsonSerializerOptions(JsonSerializerOptions options)
+        {
+            if(options is null) { return; }
+            options.DefaultIgnoreCondition = JsonIgnoreCondition.Never;
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.PropertyNamingPolicy = null;
+            options.DictionaryKeyPolicy = null;
+            options.PropertyNameCaseInsensitive = true;
+            options.ReadCommentHandling = JsonCommentHandling.Skip;
+            options.NumberHandling = JsonNumberHandling.AllowReadingFromString;            
+            options.Converters.Add(DateTimeJsonConverter);
+            options.Converters.Add(DateTimeOffsetJsonConverter);
+            options.Converters.Add(DateOnlyJsonConverter);
+            options.Converters.Add(TimeOnlyJsonConverter);
+            options.Converters.Add(TimeSpanJsonConverter);
         }
 
         public static string ToJson<T>(T obj, JsonSerializerOptions options = null)
