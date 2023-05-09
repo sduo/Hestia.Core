@@ -17,7 +17,7 @@ namespace Hestia.Core.Json.Converters
             Formatter = formatter;
         }
 
-        public override T Read(ref Utf8JsonReader reader, System.Type typeToConvert, JsonSerializerOptions options)
+        public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if(Parser == null) { throw new NotImplementedException(); }
             return Parser.Invoke(reader.GetString()) ?? throw new InvalidCastException();

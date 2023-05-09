@@ -61,6 +61,6 @@ namespace Hestia.Core
         public static T? ToDateTime<T>(this string source, DateTimeParser<T> parser, DateTimeStyles style, IFormatProvider provider, params string[] formats) where T : struct
         {
             return parser?.Invoke(source, formats, provider, style, out T value) == true ? value : null;
-        }        
+        }
     }
 }
