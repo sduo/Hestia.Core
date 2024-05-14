@@ -5,11 +5,11 @@
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<PackageId>Hestia.Core</PackageId>
-		<Version>1.0.6</Version>
+		<Version>1.0.7</Version>
 		<Authors>SDuo</Authors>
 		<PackageDescription></PackageDescription>
 		<RepositoryUrl>https://github.com/sduo/Hestia.Core</RepositoryUrl>
-		<Copyright>Copyright (c) 2022 SDuo</Copyright>
+		<Copyright>Copyright (c) 2022-2024 SDuo</Copyright>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageIcon>icon.png</PackageIcon>

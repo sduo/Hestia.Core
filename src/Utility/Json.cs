@@ -2,6 +2,7 @@
 using System;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
 namespace Hestia.Core
@@ -45,6 +46,14 @@ namespace Hestia.Core
             if (string.IsNullOrEmpty(property)) { return null; }
             if (!json.Value.TryGetProperty(property, out var value)) { return null; }
             if (kind.HasValue && value.ValueKind != kind.Value) { return null; }
+            return value;
+        }
+
+        public static JsonNode GetJsonNode(JsonObject json, string property)
+        {
+            if(json is null) { return null; }
+            if (string.IsNullOrEmpty(property)) { return null; }
+            if(!json.TryGetPropertyValue(property, out var value)) { return null; }
             return value;
         }
 
