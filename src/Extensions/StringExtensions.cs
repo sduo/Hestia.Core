@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Text;
 
 namespace Hestia.Core
 {
@@ -62,5 +65,17 @@ namespace Hestia.Core
         {
             return parser?.Invoke(source, formats, provider, style, out T value) == true ? value : null;
         }
+
+        public static string JavaScriptEscape(this string source) => Utility.JavaScriptEscape(source);
+
+        public static string JavaScriptUnescape(this string source) => Utility.JavaScriptUnescape(source);
+
+        public static string JavaScriptEncodeURI(this string source) => Utility.JavaScriptEncodeURI(source);
+
+        public static string JavaScriptDecodeURI(this string source) => Utility.JavaScriptDecodeURI(source);
+
+        public static string JavaScriptEncodeURIComponent(this string source) => Utility.JavaScriptEncodeURIComponent(source);
+
+        public static string JavaScriptDecodeURIComponent(this string source) => Utility.JavaScriptDecodeURIComponent(source);
     }
 }
