@@ -15,7 +15,7 @@ namespace Hestia.Core
 
         public static IEnumerable<T> Union<T>(this IEnumerable<T> first, params T[] second) 
         {
-            if (first == null) { throw new ArgumentNullException(nameof(first)); }
+            if (first == null) { first = Array.Empty<T>(); }
             if( second.Length == 0 ) { return first; }
             return Enumerable.Union(first, second);
         }        
