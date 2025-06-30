@@ -16,14 +16,14 @@ namespace Hestia.Core.Tests.Utility
         [ExpectedException(typeof(ArgumentNullException))]
         public void Test1()
         {
-            Core.Utility.FromRadix(null, null);
+            Core.Utility.FromRadix(null, Array.Empty<char>());
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Test2()
         {
-            Core.Utility.FromRadix(string.Empty, null);
+            Core.Utility.FromRadix(string.Empty, (char[])null);
         }
 
         [TestMethod]

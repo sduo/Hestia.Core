@@ -16,21 +16,21 @@ namespace Hestia.Core.Tests.Utility
         [ExpectedException(typeof(ArgumentNullException))]
         public void Test1()
         {
-            Core.Utility.ToRadix(null, null);
+            Core.Utility.ToRadix(null, Array.Empty<char>());
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Test2()
         {
-            Core.Utility.ToRadix(Array.Empty<byte>(), null);
+            Core.Utility.ToRadix(Array.Empty<byte>(), (char[])null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test3()
         {
-            Core.Utility.ToRadix(Array.Empty<byte>(), string.Empty.ToCharArray());
+            Core.Utility.ToRadix(Array.Empty<byte>(), string.Empty);
         }
 
         [TestMethod]
