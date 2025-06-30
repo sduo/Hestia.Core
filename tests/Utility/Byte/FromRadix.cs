@@ -9,8 +9,8 @@ namespace Hestia.Core.Tests.Utility
     public class FromRadix
     {
 
-        private static readonly string RadixCharsetL1 = new('0', 1);
-        private static readonly string RadixCharsetL257 = new('0', 257);
+        private static readonly char[] RadixCharsetL1 = new string('0', 1).ToCharArray();
+        private static readonly char[] RadixCharsetL257 = new string('0', 257).ToCharArray();
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
@@ -30,7 +30,7 @@ namespace Hestia.Core.Tests.Utility
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test3()
         {
-            Core.Utility.FromRadix(string.Empty, string.Empty);
+            Core.Utility.FromRadix(string.Empty, string.Empty.ToCharArray());
         }
 
         [TestMethod]
@@ -107,7 +107,7 @@ namespace Hestia.Core.Tests.Utility
         [TestMethod]
         public void Test15()
         {
-            Assert.AreEqual("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", Convert.ToHexString(Core.Utility.FromRadix("618NKnRomf56GFGFPsuU90u", "0123456789ABCDEFGHJKLMNPQRTUWXYacdefhijkmnoprstuwxyz")));
+            Assert.AreEqual("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", Convert.ToHexString(Core.Utility.FromRadix("618NKnRomf56GFGFPsuU90u", "0123456789ABCDEFGHJKLMNPQRTUWXYacdefhijkmnoprstuwxyz".ToCharArray())));
         }
     }
 }

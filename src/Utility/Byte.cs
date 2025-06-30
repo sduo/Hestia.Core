@@ -6,12 +6,13 @@ namespace Hestia.Core
 {
     public static partial class Utility
     {
-        public static readonly string RadixCharsetBin = "01";
-        public static readonly string RadixCharsetOct = "01234567";
-        public static readonly string RadixCharsetDec = "0123456789";
-        public static readonly string RadixCharsetHex = "0123456789ABCDEF";
+        public static readonly char[] RadixCharsetBin = new char[] { '0', '1' };
+        public static readonly char[] RadixCharsetOct = new char[] { '0', '1', '2', '3', '4', '5', '6', '7' };
+        public static readonly char[] RadixCharsetDec = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        public static readonly char[] RadixCharsetHex = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
-        public static string ToRadix(byte[] array, string charset)
+
+        public static string ToRadix(byte[] array, params char[] charset)
         {
             if (array == null) { throw new ArgumentNullException(nameof(array)); }
             if (charset == null) { throw new ArgumentNullException(nameof(charset)); }
@@ -59,7 +60,7 @@ namespace Hestia.Core
             return quotient;
         }
 
-        public static byte[] FromRadix(string text,  string charset)
+        public static byte[] FromRadix(string text,  params char[] charset)
         {
             if (text == null) { throw new ArgumentNullException(nameof(text)); }
             if (charset == null) { throw new ArgumentNullException(nameof(charset)); }

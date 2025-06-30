@@ -9,8 +9,8 @@ namespace Hestia.Core.Tests.Utility
     public class ToRadix
     {
 
-        private static readonly string RadixCharsetL1 = new('0', 1);
-        private static readonly string RadixCharsetL257 = new('0', 257);
+        private static readonly char[] RadixCharsetL1 = new string ('0', 1).ToCharArray();
+        private static readonly char[] RadixCharsetL257 = new string('0', 257).ToCharArray();
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
@@ -30,7 +30,7 @@ namespace Hestia.Core.Tests.Utility
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test3()
         {
-            Core.Utility.ToRadix(Array.Empty<byte>(), string.Empty);
+            Core.Utility.ToRadix(Array.Empty<byte>(), string.Empty.ToCharArray());
         }
 
         [TestMethod]
@@ -148,7 +148,7 @@ namespace Hestia.Core.Tests.Utility
         [TestMethod]
         public void Test22()
         {
-            Assert.AreEqual("618NKnRomf56GFGFPsuU90u", Core.Utility.ToRadix(new byte[] {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}, "0123456789ABCDEFGHJKLMNPQRTUWXYacdefhijkmnoprstuwxyz"));
+            Assert.AreEqual("618NKnRomf56GFGFPsuU90u", Core.Utility.ToRadix(new byte[] {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}, "0123456789ABCDEFGHJKLMNPQRTUWXYacdefhijkmnoprstuwxyz".ToCharArray()));
         }
 
 
