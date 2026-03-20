@@ -10,19 +10,19 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("bool").Type, typeof(bool));
+            Assert.AreEqual(typeof(bool), Core.Utility.BuildTypeDescriptorByExpression("bool").Type);
         }        
 
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual((bool)Core.Utility.BuildTypeDescriptorByExpression("bool").ToObject(bool.TrueString), true);
+            Assert.AreEqual(true, (bool)Core.Utility.BuildTypeDescriptorByExpression("bool").ToObject(bool.TrueString));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((bool)Core.Utility.BuildTypeDescriptorByExpression("bool").ToObject(bool.FalseString), false);
+            Assert.AreEqual(false, (bool)Core.Utility.BuildTypeDescriptorByExpression("bool").ToObject(bool.FalseString));
         }
     }
 }

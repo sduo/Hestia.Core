@@ -11,18 +11,18 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("TimeOnly").Type, typeof(TimeOnly));
+            Assert.AreEqual(typeof(TimeOnly), Core.Utility.BuildTypeDescriptorByExpression("TimeOnly").Type);
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual((TimeOnly)Core.Utility.BuildTypeDescriptorByExpression("TimeOnly").ToObject($"{TimeOnly.MinValue:HH:mm:ss.fffffff}"), TimeOnly.MinValue);
+            Assert.AreEqual(TimeOnly.MinValue, (TimeOnly)Core.Utility.BuildTypeDescriptorByExpression("TimeOnly").ToObject($"{TimeOnly.MinValue:HH:mm:ss.fffffff}"));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((TimeOnly)Core.Utility.BuildTypeDescriptorByExpression("TimeOnly").ToObject($"{TimeOnly.MaxValue:HH:mm:ss.fffffff}"), TimeOnly.MaxValue);
+            Assert.AreEqual(TimeOnly.MaxValue, (TimeOnly)Core.Utility.BuildTypeDescriptorByExpression("TimeOnly").ToObject($"{TimeOnly.MaxValue:HH:mm:ss.fffffff}"));
         }
     }
 }

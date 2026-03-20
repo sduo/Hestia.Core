@@ -12,7 +12,7 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("object").Type, typeof(object));
+            Assert.AreEqual(typeof(object), Core.Utility.BuildTypeDescriptorByExpression("object").Type);
         }
     }
 }

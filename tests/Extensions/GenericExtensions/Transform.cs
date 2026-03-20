@@ -27,26 +27,34 @@ namespace Hestia.Core.Tests.Extensions.GenericExtensions
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Test3()
         {
-            string source = null;
-            source.Transform(decoder);
+            Assert.ThrowsExactly<ArgumentNullException>(() =>
+            {
+                string source = null;
+                source.Transform(decoder);
+            });
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Test4()
         {
-            byte[] source = null;
-            source.Transform(encoder);
+            Assert.ThrowsExactly<ArgumentNullException>(() =>
+            {
+                byte[] source = null;
+                source.Transform(encoder);
+            });
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Test5()
         {
-            Source.Transform<string, string>(null);
+            Assert.ThrowsExactly<ArgumentNullException>(() =>
+            {
+                Source.Transform<string, string>(null);
+            });
         }
     }
 }

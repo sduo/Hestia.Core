@@ -9,45 +9,56 @@ namespace Hestia.Core.Tests.Utility
     public class ToRadix
     {
 
-        private static readonly char[] RadixCharsetL1 = new string ('0', 1).ToCharArray();
+        private static readonly char[] RadixCharsetL1 = new string('0', 1).ToCharArray();
         private static readonly char[] RadixCharsetL257 = new string('0', 257).ToCharArray();
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Test1()
         {
-            Core.Utility.ToRadix(null, Array.Empty<char>());
+            Assert.ThrowsExactly<ArgumentNullException>(() =>
+            {
+                Core.Utility.ToRadix(null, Array.Empty<char>());
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Test2()
         {
-            Core.Utility.ToRadix(Array.Empty<byte>(), (char[])null);
+            Assert.ThrowsExactly<ArgumentNullException>(() =>
+            {
+                Core.Utility.ToRadix(Array.Empty<byte>(), (char[])null);
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test3()
         {
-            Core.Utility.ToRadix(Array.Empty<byte>(), string.Empty);
+            Assert.ThrowsExactly<ArgumentOutOfRangeException>(() =>
+            {
+                Core.Utility.ToRadix(Array.Empty<byte>(), string.Empty);
+            });
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test4()
         {
-            Core.Utility.ToRadix(Array.Empty<byte>(), RadixCharsetL1);
+            Assert.ThrowsExactly<ArgumentOutOfRangeException>(() =>
+            {
+                Core.Utility.ToRadix(Array.Empty<byte>(), RadixCharsetL1);
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test5()
-        {            
-            Core.Utility.ToRadix(Array.Empty<byte>(), RadixCharsetL257);
+        {
+            Assert.ThrowsExactly<ArgumentOutOfRangeException>(() =>
+            {
+                Core.Utility.ToRadix(Array.Empty<byte>(), RadixCharsetL257);
+            });
         }
 
-        [TestMethod]        
+        [TestMethod]
         public void Test6()
         {
             Assert.AreEqual("0", Core.Utility.ToRadix(new byte[] { byte.MinValue }, Core.Utility.RadixCharsetBin));
@@ -148,9 +159,7 @@ namespace Hestia.Core.Tests.Utility
         [TestMethod]
         public void Test22()
         {
-            Assert.AreEqual("618NKnRomf56GFGFPsuU90u", Core.Utility.ToRadix(new byte[] {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}, "0123456789ABCDEFGHJKLMNPQRTUWXYacdefhijkmnoprstuwxyz".ToCharArray()));
+            Assert.AreEqual("618NKnRomf56GFGFPsuU90u", Core.Utility.ToRadix(new byte[] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF }, "0123456789ABCDEFGHJKLMNPQRTUWXYacdefhijkmnoprstuwxyz".ToCharArray()));
         }
-
-
     }
 }

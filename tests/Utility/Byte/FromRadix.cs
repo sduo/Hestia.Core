@@ -13,44 +13,55 @@ namespace Hestia.Core.Tests.Utility
         private static readonly char[] RadixCharsetL257 = new string('0', 257).ToCharArray();
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Test1()
         {
-            Core.Utility.FromRadix(null, Array.Empty<char>());
+            Assert.ThrowsExactly<ArgumentNullException>(() =>
+            {
+                Core.Utility.FromRadix(null, Array.Empty<char>());
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Test2()
         {
-            Core.Utility.FromRadix(string.Empty, (char[])null);
+            Assert.ThrowsExactly<ArgumentNullException>(() =>
+            {
+                Core.Utility.FromRadix(string.Empty, (char[])null);
+            });
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test3()
         {
-            Core.Utility.FromRadix(string.Empty, string.Empty.ToCharArray());
+            Assert.ThrowsExactly<ArgumentOutOfRangeException>(() =>
+            {
+                Core.Utility.FromRadix(string.Empty, string.Empty.ToCharArray());
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test4()
         {
-            Core.Utility.FromRadix(string.Empty, RadixCharsetL1);
+            Assert.ThrowsExactly<ArgumentOutOfRangeException>(() =>
+            {
+                Core.Utility.FromRadix(string.Empty, RadixCharsetL1);
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Test5()
-        {            
-            Core.Utility.FromRadix(string.Empty, RadixCharsetL257);
+        {
+            Assert.ThrowsExactly<ArgumentOutOfRangeException>(() =>
+            {
+                Core.Utility.FromRadix(string.Empty, RadixCharsetL257);
+            });
         }
 
-        [TestMethod]        
+        [TestMethod]
         public void Test6()
         {
-            Assert.AreEqual("00",Convert.ToHexString(Core.Utility.FromRadix("0", Core.Utility.RadixCharsetBin)));
+            Assert.AreEqual("00", Convert.ToHexString(Core.Utility.FromRadix("0", Core.Utility.RadixCharsetBin)));
         }
 
         [TestMethod]
@@ -71,7 +82,6 @@ namespace Hestia.Core.Tests.Utility
         {
             Assert.AreEqual("FF", Convert.ToHexString(Core.Utility.FromRadix("255", Core.Utility.RadixCharsetDec)));
         }
-
 
         [TestMethod]
         public void Test10()

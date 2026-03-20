@@ -36,7 +36,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test1()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 DateTime value = DateTime.Now;
                 string json = Core.Utility.ToJson(new DateTime[] { value }, NullOptions);
@@ -46,7 +46,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test2()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 DateTime value = DateTime.Now;
                 DateTime[] array = Core.Utility.FromJson<DateTime[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]", NullOptions);
@@ -56,7 +56,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test3()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 DateTimeOffset value = DateTimeOffset.Now.ToLocalTime();
                 string json = Core.Utility.ToJson(new DateTimeOffset[] { value }, NullOptions);
@@ -66,7 +66,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test4()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 DateTimeOffset value = DateTimeOffset.Now.ToLocalTime();
                 DateTimeOffset[] array = Core.Utility.FromJson<DateTimeOffset[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]", NullOptions);
@@ -76,7 +76,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test5()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 DateOnly value = DateOnly.MaxValue;
                 string json = Core.Utility.ToJson(new DateOnly[] { value }, NullOptions);
@@ -86,7 +86,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test6()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 DateOnly value = DateOnly.MaxValue;
                 DateOnly[] array = Core.Utility.FromJson<DateOnly[]>($"[\"{value:yyyy-MM-dd}\"]", NullOptions);
@@ -96,7 +96,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test7()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 TimeOnly value = TimeOnly.MaxValue;
                 string json = Core.Utility.ToJson(new TimeOnly[] { value }, NullOptions);
@@ -106,7 +106,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test8()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 TimeOnly value = TimeOnly.MaxValue;
                 TimeOnly[] array = Core.Utility.FromJson<TimeOnly[]>($"[\"{value:HH:mm:ss.fffffff}\"]", NullOptions);
@@ -116,7 +116,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test9()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 TimeSpan value = TimeSpan.MaxValue;
                 string json = Core.Utility.ToJson(new TimeSpan[] { value }, NullOptions);
@@ -126,7 +126,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test10()
         {
-            Assert.ThrowsException<NotImplementedException>(() =>
+            Assert.ThrowsExactly<NotImplementedException>(() =>
             {
                 TimeSpan value = TimeSpan.MaxValue;
                 TimeSpan[] array = Core.Utility.FromJson<TimeSpan[]>($"[\"{value:G}\"]", NullOptions);
@@ -136,7 +136,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test11()
         {
-            Assert.ThrowsException<InvalidCastException>(() =>
+            Assert.ThrowsExactly<InvalidCastException>(() =>
             {
                 DateTime value = DateTime.Now;
                 string json = Core.Utility.ToJson(new DateTime[] { value }, InvalidCastOptions);
@@ -146,7 +146,7 @@ namespace Hestia.Core.Tests.Utility.Json
         [TestMethod]
         public void Test12()
         {
-            Assert.ThrowsException<InvalidCastException>(() =>
+            Assert.ThrowsExactly<InvalidCastException>(() =>
             {
                 DateTime value = DateTime.Now;
                 DateTime[] array = Core.Utility.FromJson<DateTime[]>($"[\"{value:yyyy-MM-dd HH:mm:ss.fffffff}\"]", InvalidCastOptions);

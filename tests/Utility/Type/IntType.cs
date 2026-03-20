@@ -10,36 +10,36 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("uint").Type, typeof(uint));
+            Assert.AreEqual(typeof(uint), Core.Utility.BuildTypeDescriptorByExpression("uint").Type);
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("int").Type, typeof(int));
+            Assert.AreEqual(typeof(int), Core.Utility.BuildTypeDescriptorByExpression("int").Type);
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((uint)Core.Utility.BuildTypeDescriptorByExpression("uint").ToObject($"{uint.MinValue}"), uint.MinValue);
+            Assert.AreEqual(uint.MinValue, (uint)Core.Utility.BuildTypeDescriptorByExpression("uint").ToObject($"{uint.MinValue}"));
         }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual((uint)Core.Utility.BuildTypeDescriptorByExpression("uint").ToObject($"{uint.MaxValue}"), uint.MaxValue);
-        }       
+            Assert.AreEqual(uint.MaxValue, (uint)Core.Utility.BuildTypeDescriptorByExpression("uint").ToObject($"{uint.MaxValue}"));
+        }      
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreEqual((int)Core.Utility.BuildTypeDescriptorByExpression("int").ToObject($"{int.MinValue}"), int.MinValue);
+            Assert.AreEqual(int.MinValue, (int)Core.Utility.BuildTypeDescriptorByExpression("int").ToObject($"{int.MinValue}"));
         }
 
         [TestMethod]
         public void Test6()
         {
-            Assert.AreEqual((int)Core.Utility.BuildTypeDescriptorByExpression("int").ToObject($"{int.MaxValue}"), int.MaxValue);
+            Assert.AreEqual(int.MaxValue, (int)Core.Utility.BuildTypeDescriptorByExpression("int").ToObject($"{int.MaxValue}"));
         }
     }
 }

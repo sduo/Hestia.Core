@@ -11,18 +11,18 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("DateOnly").Type, typeof(DateOnly));
+            Assert.AreEqual(typeof(DateOnly), Core.Utility.BuildTypeDescriptorByExpression("DateOnly").Type);
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual((DateOnly)Core.Utility.BuildTypeDescriptorByExpression("DateOnly").ToObject($"{DateOnly.MinValue:yyyy-MM-dd}"), DateOnly.MinValue);
+            Assert.AreEqual(DateOnly.MinValue, (DateOnly)Core.Utility.BuildTypeDescriptorByExpression("DateOnly").ToObject($"{DateOnly.MinValue:yyyy-MM-dd}"));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((DateOnly)Core.Utility.BuildTypeDescriptorByExpression("DateOnly").ToObject($"{DateOnly.MaxValue:yyyy-MM-dd}"), DateOnly.MaxValue);
+            Assert.AreEqual(DateOnly.MaxValue, (DateOnly)Core.Utility.BuildTypeDescriptorByExpression("DateOnly").ToObject($"{DateOnly.MaxValue:yyyy-MM-dd}"));
         }
     }
 }

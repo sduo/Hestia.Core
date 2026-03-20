@@ -11,24 +11,22 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").Type, typeof(TimeSpan));
+            Assert.AreEqual(typeof(TimeSpan), Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").Type );
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual((TimeSpan)Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").ToObject($"{TimeSpan.MinValue}"), TimeSpan.MinValue);
+            Assert.AreEqual(TimeSpan.MinValue, (TimeSpan)Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").ToObject($"{TimeSpan.MinValue}"));
         }
         [TestMethod]
         public void Test3()
-        {
-            
-            Assert.AreEqual((TimeSpan)Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").ToObject($"{TimeSpan.MaxValue}"), TimeSpan.MaxValue);
+        {            
+            Assert.AreEqual(TimeSpan.MaxValue, (TimeSpan)Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").ToObject($"{TimeSpan.MaxValue}"));
         }
         [TestMethod]
         public void Test4()
-        {
-            
-            Assert.AreEqual((TimeSpan)Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").ToObject($"{TimeSpan.Zero}"), TimeSpan.Zero);
+        {            
+            Assert.AreEqual(TimeSpan.Zero, (TimeSpan)Core.Utility.BuildTypeDescriptorByExpression("TimeSpan").ToObject($"{TimeSpan.Zero}"));
         }
     }
 }

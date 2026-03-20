@@ -7,7 +7,7 @@ namespace Hestia.Core.Tests.Utility.String
     [TestClass]
     [ExcludeFromCodeCoverage]
     public sealed class JavaScript
-    {       
+    {
 
         [TestMethod]
         public void Test1()
@@ -60,29 +60,34 @@ namespace Hestia.Core.Tests.Utility.String
 
         [TestMethod]
         public void Test9()
-        {            
+        {
             Assert.AreEqual("%F0%90%8F%BF", Core.Utility.JavaScriptEncodeURI("\uD800\uDFFF"));
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void Test10()
         {
-            Core.Utility.JavaScriptEncodeURI("\uD800");
+            Assert.ThrowsExactly<ArgumentException>(() =>
+            {
+                Core.Utility.JavaScriptEncodeURI("\uD800");
+            });
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void Test11()
         {
-            Core.Utility.JavaScriptEncodeURI("\uDFFF");
+            Assert.ThrowsExactly<ArgumentException>(() =>
+            {
+                Core.Utility.JavaScriptEncodeURI("\uDFFF");
+            });
         }
 
         [TestMethod]
         public void Test12()
         {
             Assert.AreEqual("%5B%5D", Core.Utility.JavaScriptEncodeURI("[]"));
-        }        
+        }
 
         [TestMethod]
         public void Test13()
@@ -91,10 +96,13 @@ namespace Hestia.Core.Tests.Utility.String
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void Test14()
         {
-            Core.Utility.JavaScriptDecodeURI("%E0%A4%A");
+            Assert.ThrowsExactly<ArgumentException>(() =>
+            {
+                Core.Utility.JavaScriptDecodeURI("%E0%A4%A");
+            });
+
         }
 
         [TestMethod]
@@ -152,19 +160,24 @@ namespace Hestia.Core.Tests.Utility.String
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void Test24()
         {
-            Core.Utility.JavaScriptEncodeURIComponent("\uD800");
+            Assert.ThrowsExactly<ArgumentException>(() =>
+            {
+                Core.Utility.JavaScriptEncodeURIComponent("\uD800");
+            });
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void Test25()
         {
-            Core.Utility.JavaScriptEncodeURIComponent("\uDFFF");
+            Assert.ThrowsExactly<ArgumentException>(() =>
+            {
+                Core.Utility.JavaScriptEncodeURIComponent("\uDFFF");
+            });
         }
-        
+
         [TestMethod]
         public void Test26()
         {
@@ -172,10 +185,12 @@ namespace Hestia.Core.Tests.Utility.String
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void Test27()
         {
-            Core.Utility.JavaScriptDecodeURIComponent("%E0%A4%A");
+            Assert.ThrowsExactly<ArgumentException>(() =>
+            {
+                Core.Utility.JavaScriptDecodeURIComponent("%E0%A4%A");
+            });
         }
 
         [TestMethod]

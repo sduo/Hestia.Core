@@ -10,35 +10,35 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("ushort").Type, typeof(ushort));
+            Assert.AreEqual(typeof(ushort), Core.Utility.BuildTypeDescriptorByExpression("ushort").Type);
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("short").Type, typeof(short));
+            Assert.AreEqual(typeof(short), Core.Utility.BuildTypeDescriptorByExpression("short").Type);
         }
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((ushort)Core.Utility.BuildTypeDescriptorByExpression("ushort").ToObject($"{ushort.MinValue}"), ushort.MinValue);
+            Assert.AreEqual(ushort.MinValue, (ushort)Core.Utility.BuildTypeDescriptorByExpression("ushort").ToObject($"{ushort.MinValue}"));
         }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual((ushort)Core.Utility.BuildTypeDescriptorByExpression("ushort").ToObject($"{ushort.MaxValue}"), ushort.MaxValue);
+            Assert.AreEqual(ushort.MaxValue, (ushort)Core.Utility.BuildTypeDescriptorByExpression("ushort").ToObject($"{ushort.MaxValue}"));
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreEqual((short)Core.Utility.BuildTypeDescriptorByExpression("short").ToObject($"{short.MinValue}"), short.MinValue);
+            Assert.AreEqual(short.MinValue, (short)Core.Utility.BuildTypeDescriptorByExpression("short").ToObject($"{short.MinValue}"));
         }
 
         [TestMethod]
         public void Test6()
         {
-            Assert.AreEqual((short)Core.Utility.BuildTypeDescriptorByExpression("short").ToObject($"{short.MaxValue}"), short.MaxValue);
+            Assert.AreEqual(short.MaxValue, (short)Core.Utility.BuildTypeDescriptorByExpression("short").ToObject($"{short.MaxValue}"));
         }
     }
 }

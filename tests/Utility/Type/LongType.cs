@@ -10,36 +10,36 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("ulong").Type, typeof(ulong));
+            Assert.AreEqual(typeof(ulong), Core.Utility.BuildTypeDescriptorByExpression("ulong").Type);
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("long").Type, typeof(long));
+            Assert.AreEqual(typeof(long), Core.Utility.BuildTypeDescriptorByExpression("long").Type);
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((ulong)Core.Utility.BuildTypeDescriptorByExpression("ulong").ToObject($"{ulong.MinValue}"), ulong.MinValue);
+            Assert.AreEqual(ulong.MinValue, (ulong)Core.Utility.BuildTypeDescriptorByExpression("ulong").ToObject($"{ulong.MinValue}"));
         }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual((ulong)Core.Utility.BuildTypeDescriptorByExpression("ulong").ToObject($"{ulong.MaxValue}"), ulong.MaxValue);
+            Assert.AreEqual(ulong.MaxValue, (ulong)Core.Utility.BuildTypeDescriptorByExpression("ulong").ToObject($"{ulong.MaxValue}"));
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreEqual((long)Core.Utility.BuildTypeDescriptorByExpression("long").ToObject($"{long.MinValue}"), long.MinValue);
+            Assert.AreEqual(long.MinValue, (long)Core.Utility.BuildTypeDescriptorByExpression("long").ToObject($"{long.MinValue}"));
         }
 
         [TestMethod]
         public void Test6()
         {
-            Assert.AreEqual((long)Core.Utility.BuildTypeDescriptorByExpression("long").ToObject($"{long.MaxValue}"), long.MaxValue);
+            Assert.AreEqual(long.MaxValue, (long)Core.Utility.BuildTypeDescriptorByExpression("long").ToObject($"{long.MaxValue}"));
         }
     }
 }

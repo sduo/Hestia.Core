@@ -10,40 +10,40 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("float").Type, typeof(float));
+            Assert.AreEqual(typeof(float), Core.Utility.BuildTypeDescriptorByExpression("float").Type);
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual((float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.MinValue}"), float.MinValue);
+            Assert.AreEqual(float.MinValue, (float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.MinValue}"));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.MaxValue}"), float.MaxValue);
+            Assert.AreEqual(float.MaxValue, (float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.MaxValue}"));
         }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual((float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.NaN}"), float.NaN);
+            Assert.AreEqual(float.NaN, (float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.NaN}"));
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreEqual((float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.PositiveInfinity}"), float.PositiveInfinity);
+            Assert.AreEqual(float.PositiveInfinity, (float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.PositiveInfinity}"));
         }
         [TestMethod]
         public void Test6()
         {
-            Assert.AreEqual((float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.NegativeInfinity}"), float.NegativeInfinity);
+            Assert.AreEqual(float.NegativeInfinity, (float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.NegativeInfinity}"));
         }
         [TestMethod]
         public void Test7()
         {
-            Assert.AreEqual((float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.Epsilon}"), float.Epsilon);
+            Assert.AreEqual(float.Epsilon, (float)Core.Utility.BuildTypeDescriptorByExpression("float").ToObject($"{float.Epsilon}"));
         }
     }
 }

@@ -12,19 +12,19 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("string").Type, typeof(string));
+            Assert.AreEqual(typeof(string), Core.Utility.BuildTypeDescriptorByExpression("string").Type);
         }        
 
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual((string)Core.Utility.BuildTypeDescriptorByExpression("string").ToObject(string.Empty), string.Empty);
+            Assert.AreEqual(string.Empty, (string)Core.Utility.BuildTypeDescriptorByExpression("string").ToObject(string.Empty));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((string)Core.Utility.BuildTypeDescriptorByExpression("string").ToObject(Hestia), Hestia);
+            Assert.AreEqual(Hestia, (string)Core.Utility.BuildTypeDescriptorByExpression("string").ToObject(Hestia));
         }
 
     }

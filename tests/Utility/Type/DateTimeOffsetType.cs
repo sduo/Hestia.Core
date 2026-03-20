@@ -11,23 +11,23 @@ namespace Hestia.Core.Tests.Utility.Type
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").Type, typeof(DateTimeOffset));
+            Assert.AreEqual(typeof(DateTimeOffset), Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").Type);
         }
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual((DateTimeOffset)Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").ToObject($"{DateTimeOffset.MinValue.ToLocalTime():yyyy-MM-dd HH:mm:ss.fffffff}"), DateTimeOffset.MinValue.ToLocalTime());
+            Assert.AreEqual(DateTimeOffset.MinValue.ToLocalTime(), (DateTimeOffset)Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").ToObject($"{DateTimeOffset.MinValue.ToLocalTime():yyyy-MM-dd HH:mm:ss.fffffff}"));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual((DateTimeOffset)Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").ToObject($"{DateTimeOffset.MaxValue.ToLocalTime():yyyy-MM-dd HH:mm:ss.fffffff}"), DateTimeOffset.MaxValue.ToLocalTime());
+            Assert.AreEqual(DateTimeOffset.MaxValue.ToLocalTime(), (DateTimeOffset)Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").ToObject($"{DateTimeOffset.MaxValue.ToLocalTime():yyyy-MM-dd HH:mm:ss.fffffff}"));
         }
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual((DateTimeOffset)Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").ToObject($"{DateTimeOffset.UnixEpoch.ToLocalTime():yyyy-MM-dd HH:mm:ss.fffffff}"), DateTimeOffset.UnixEpoch.ToLocalTime());
+            Assert.AreEqual(DateTimeOffset.UnixEpoch.ToLocalTime(), (DateTimeOffset)Core.Utility.BuildTypeDescriptorByExpression("DateTimeOffset").ToObject($"{DateTimeOffset.UnixEpoch.ToLocalTime():yyyy-MM-dd HH:mm:ss.fffffff}"));
         }
     }
 }
