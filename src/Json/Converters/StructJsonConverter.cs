@@ -4,20 +4,14 @@ using System.Text.Json.Serialization;
 
 namespace Hestia.Core.Json.Converters
 {
-    public class StructJsonConverter<T> : JsonConverter<T> where T : struct
+    public class StructJsonConverter<T>(Func<string, T?> parser, Func<T, string> formatter) : JsonConverter<T> where T : struct
     {
-        
-        public Func<string, T?> Parser { get;private set; }
 
-        public Func<T, string> Formatter { get; private set; }
+        public Func<string, T?> Parser { get; private set; } = parser;
 
-        public StructJsonConverter(Func<string,T?> parser, Func<T,string> formatter)
-        {
-            Parser = parser;
-            Formatter = formatter;
-        }
+        public Func<T, string> Formatter { get; private set; } = formatter;
 
-        public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override T Read(ref Utf8JsonReader reader, Type convert, JsonSerializerOptions options)
         {
             if(Parser == null) { throw new NotImplementedException(); }
             return Parser.Invoke(reader.GetString()) ?? throw new InvalidCastException();
