@@ -19,7 +19,7 @@ namespace Hestia.Core.Tests.Utility.Json
         public void Test1()
         {
             Model model = Core.Utility.FromJson<Model>($"{{\"{nameof(Model.Value)}\":null}}");
-            Assert.AreEqual(null, model.Value);
+            Assert.IsNull(model.Value);
         }
 
         [TestMethod]
