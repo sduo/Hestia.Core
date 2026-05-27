@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 namespace Hestia.Core.Tests.Extensions.GenericExtensions
 {
@@ -10,51 +8,101 @@ namespace Hestia.Core.Tests.Extensions.GenericExtensions
     public sealed class Transform
     {
         const string Source = "Hestia.Core";
-        static readonly Func<string, byte[]> decoder = Encoding.UTF8.GetBytes;
-        static readonly Func<byte[], string> encoder = Encoding.UTF8.GetString;
-
 
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual(Source, Source.Transform(decoder).Transform(encoder));
+            Assert.IsNull((null as string)?.Transform<string, string>(null));
         }
 
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual(string.Empty, string.Empty.Transform(decoder).Transform(encoder));
+            Assert.IsNull((null as int?)?.Transform<int,string>(null));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.ThrowsExactly<ArgumentNullException>(() =>
-            {
-                string source = null;
-                source.Transform(decoder);
-            });
-
+            Assert.IsNull(Source.Transform<string, string>(null));
         }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.ThrowsExactly<ArgumentNullException>(() =>
-            {
-                byte[] source = null;
-                source.Transform(encoder);
-            });
-
+            Assert.IsNull(Source.Length.Transform<int, string>(null));
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.ThrowsExactly<ArgumentNullException>(() =>
-            {
-                Source.Transform<string, string>(null);
-            });
+            Assert.AreEqual(Source,Source.Transform(x=>x));
+        }
+
+        [TestMethod]
+        public void Test6()
+        {
+            Assert.AreEqual(Source.Length.ToString(), Source.Length.Transform(x=>x.ToString()));
+        }
+
+        [TestMethod]
+        public void Test7()
+        {
+            Assert.IsNull(Source.Transform<string, string>(x => null));
+        }
+
+        [TestMethod]
+        public void Test8()
+        {
+            Assert.IsNull(Source.Length.Transform<int, string>(x => null));
+        }
+
+        [TestMethod]
+        public void Test9()
+        {
+            Assert.IsNull((null as string)?.Transform<string, int>(null));
+        }
+
+        [TestMethod]
+        public void Test10()
+        {
+            Assert.IsNull((null as int?)?.Transform<int, int>(null));
+        }
+
+        [TestMethod]
+        public void Test11()
+        {
+            Assert.IsNull(Source.Transform<string, int>(null));
+        }
+
+        [TestMethod]
+        public void Test12()
+        {
+            Assert.IsNull(Source.Length.Transform<int, int>(null));
+        }
+
+        [TestMethod]
+        public void Test13()
+        {
+            Assert.AreEqual(Source.Length, Source.Transform<string, int>(x => x.Length));
+        }
+
+        [TestMethod]
+        public void Test14()
+        {
+            Assert.AreEqual(Source.Length, Source.Length.Transform<int, int>(x => x));
+        }
+
+        [TestMethod]
+        public void Test15()
+        {
+            Assert.IsNull(Source.Transform<string, int>(x => null));
+        }
+
+        [TestMethod]
+        public void Test16()
+        {
+            Assert.IsNull(Source.Length.Transform<int, int>(x => null));
         }
     }
 }

@@ -6,16 +6,21 @@ namespace Hestia.Core
 {
     public static class GenericExtensions
     {
-        public static TOut Transform<TIn,TOut>(this TIn source, Func<TIn, TOut> transformer)
+        public static TOut Transform<TIn, TOut>(this TIn source, Func<TIn, TOut> transformer) where TOut : class
         {
-            if(transformer == null) { throw new ArgumentNullException(nameof(transformer)); }
-            if(source == null) { throw new ArgumentNullException(nameof(transformer)); }
-            return transformer.Invoke(source);
+            if (source is null) { return null; }
+            return transformer?.Invoke(source);
+        }
+
+        public static TOut? Transform<TIn, TOut>(this TIn source, Func<TIn, TOut?> transformer) where TOut : struct
+        {
+            if (source is null) { return null; }
+            return transformer?.Invoke(source);
         }
 
         public static IEnumerable<T> Union<T>(this IEnumerable<T> first, params T[] second) 
         {
-            if (first == null) { first = Array.Empty<T>(); }
+            first ??= [];
             if( second.Length == 0 ) { return first; }
             return Enumerable.Union(first, second);
         }        
