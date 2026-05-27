@@ -1,6 +1,5 @@
 ﻿using Hestia.Core.Json.Converters;
 using System;
-using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -53,12 +52,12 @@ namespace Hestia.Core
 
         public static string ToJson<T>(T obj, JsonSerializerOptions options = null)
         {
-            return JsonSerializer.Serialize(obj, BuildDefaultJsonSerializerOptions(options));
+            return JsonSerializer.Serialize(obj, options ?? BuildDefaultJsonSerializerOptions(options));
         }
 
         public static T FromJson<T>(string json, JsonSerializerOptions options = null)
         {
-            return JsonSerializer.Deserialize<T>(json, BuildDefaultJsonSerializerOptions(options));
+            return JsonSerializer.Deserialize<T>(json, options ?? BuildDefaultJsonSerializerOptions(options));
         }
     }
 }
