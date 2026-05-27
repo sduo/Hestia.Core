@@ -1,5 +1,6 @@
 ﻿using Hestia.Core.Json.Converters;
 using System;
+using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -8,24 +9,16 @@ using System.Text.Json.Serialization;
 namespace Hestia.Core
 {
     public static partial class Utility
-    {
-        public static JsonSerializerOptions DefaultJsonSerializerOptions { get; private set; }
+    {        
         public static readonly StructJsonConverter<DateTime> DateTimeJsonConverter = new(x => x.ToDateTime(), x => x.ToString("yyyy-MM-dd HH:mm:ss"));
         public static readonly StructJsonConverter<DateTimeOffset> DateTimeOffsetJsonConverter = new(x => x.ToDateTimeOffset(), x => x.ToString("yyyy-MM-dd HH:mm:ss"));
         public static readonly StructJsonConverter<DateOnly> DateOnlyJsonConverter = new(x => x.ToDateOnly(), x => x.ToString("yyyy-MM-dd"));
         public static readonly StructJsonConverter<TimeOnly> TimeOnlyJsonConverter = new(x => x.ToTimeOnly(), x => x.ToString("HH:mm:ss"));
         public static readonly StructJsonConverter<TimeSpan> TimeSpanJsonConverter = new(x => x.ToTimeSpan(), x => x.ToString("G"));
 
-
-        static Utility()
+        public static JsonSerializerOptions BuildDefaultJsonSerializerOptions(JsonSerializerOptions options = null)
         {
-            DefaultJsonSerializerOptions = new();
-            SetDefaultJsonSerializerOptions(DefaultJsonSerializerOptions);            
-        }
-
-        public static void SetDefaultJsonSerializerOptions(JsonSerializerOptions options)
-        {
-            if(options is null) { return; }
+            options ??= new();
             options.DefaultIgnoreCondition = JsonIgnoreCondition.Never;
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             options.PropertyNamingPolicy = null;
@@ -38,6 +31,7 @@ namespace Hestia.Core
             options.Converters.Add(DateOnlyJsonConverter);
             options.Converters.Add(TimeOnlyJsonConverter);
             options.Converters.Add(TimeSpanJsonConverter);
+            return options;
         }
 
         public static JsonElement? GetJsonElement(JsonElement? json, string property, JsonValueKind? kind)
@@ -59,12 +53,12 @@ namespace Hestia.Core
 
         public static string ToJson<T>(T obj, JsonSerializerOptions options = null)
         {
-            return JsonSerializer.Serialize(obj, options ?? DefaultJsonSerializerOptions);
+            return JsonSerializer.Serialize(obj, BuildDefaultJsonSerializerOptions(options));
         }
 
         public static T FromJson<T>(string json, JsonSerializerOptions options = null)
         {
-            return JsonSerializer.Deserialize<T>(json, options ?? DefaultJsonSerializerOptions);
+            return JsonSerializer.Deserialize<T>(json, BuildDefaultJsonSerializerOptions(options));
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Hestia.Core.TypeDescriptor
 
         public object ToObject(string value)
         {
-            return JsonSerializer.Deserialize(value, Type, Utility.DefaultJsonSerializerOptions);
+            return JsonSerializer.Deserialize(value, Type, Utility.BuildDefaultJsonSerializerOptions());
         }
 
         public Func<Type[], bool> Verification { get; private set; }
