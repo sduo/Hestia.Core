@@ -9,7 +9,7 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     env:
-        environment: release
+      environment: release
     steps:
     - uses: actions/checkout@v6
     - name: Setup .NET
