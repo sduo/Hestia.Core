@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Hestia.Core
+namespace Hestia.Core.Cache
 {
-    public abstract class Store<T>(TimeSpan timeout) : IReadOnlyCollection<T>
+    public abstract class Store<T, R>(TimeSpan timeout) : IReadOnlyCollection<T>
     {
         protected volatile List<T> store = [];
         private readonly SemaphoreSlim @lock = new(1, 1);
@@ -23,6 +23,8 @@ namespace Hestia.Core
         #endregion
 
         protected abstract Task LoadAsync(bool reload);
+
+        public R RawData { get; protected set; }
 
         public async Task RefreshAsync(bool reload = false)
         {
