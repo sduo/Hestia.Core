@@ -11,37 +11,73 @@ namespace Hestia.Core.Tests.Extensions.GenericExtensions
         [TestMethod]
         public void Test1()
         {
-            Assert.AreSame(Array.Empty<string>(), (null as string[]).Union(Array.Empty<string>()));
+            Assert.AreSame([], (null as string[]).Union([]));
         }
 
         [TestMethod]
         public void Test2()
         {
-            Assert.AreSame(Array.Empty<int>(), (null as int[]).Union(Array.Empty<int>()));
+            Assert.AreSame([], (null as int[]).Union([]));
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreSame(Array.Empty<int?>(), (null as int?[]).Union(Array.Empty<int?>()));
+            Assert.AreSame([], (null as int?[]).Union([]));
         }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.AreSame(Array.Empty<string>(), (Array.Empty<string>()).Union(Array.Empty<string>()));
+            Assert.AreSame([], (Array.Empty<string>()).Union([]));
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreSame(Array.Empty<int>(), (Array.Empty<int>()).Union(Array.Empty<int>()));
+            Assert.AreSame([], (Array.Empty<int>()).Union([]));
         }
 
         [TestMethod]
         public void Test6()
         {
-            Assert.AreSame(Array.Empty<int?>(), (Array.Empty<int?>()).Union(Array.Empty<int?>()));
+            Assert.AreSame([], (Array.Empty<int?>()).Union([]));
+        }
+
+        [TestMethod]
+        public void Test7()
+        {
+            Assert.IsNull((null as string[]).Union(null));
+        }
+
+        [TestMethod]
+        public void Test8()
+        {
+            Assert.IsNull((null as int[]).Union(null));
+        }
+
+        [TestMethod]
+        public void Test9()
+        {
+            Assert.IsNull((null as int?[]).Union(null));
+        }
+
+        [TestMethod]
+        public void Test10()
+        {
+            Assert.AreSame([], (Array.Empty<string>()).Union(null));
+        }
+
+        [TestMethod]
+        public void Test11()
+        {
+            Assert.AreSame([], (Array.Empty<int>()).Union(null));
+        }
+
+        [TestMethod]
+        public void Test12()
+        {
+            Assert.AreSame([], (Array.Empty<int?>()).Union(null));
         }
     }
 }

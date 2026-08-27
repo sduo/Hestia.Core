@@ -19,9 +19,10 @@ namespace Hestia.Core
         }
 
         public static IEnumerable<T> Union<T>(this IEnumerable<T> first, params T[] second) 
-        {
-            first ??= [];
-            if( second.Length == 0 ) { return first; }
+        {            
+            if (first is null && second is null) { return null; }
+            if((first is null || first.Any() == false) && second is not null ) { return second; }
+            if(first is not null && (second is null || second.Length == 0)) { return first; }
             return Enumerable.Union(first, second);
         }        
     }
