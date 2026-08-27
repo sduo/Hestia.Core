@@ -182,7 +182,9 @@ namespace Hestia.Core
 
         public static string JavaScriptEncode(string source, IEnumerable<char> ExtraUnescaped)
         {
-            if(ExtraUnescaped is null) { throw new ArgumentNullException(nameof(ExtraUnescaped)); }
+            ArgumentNullException.ThrowIfNull(ExtraUnescaped);
+
+            if(string.IsNullOrEmpty(source)) { return source; }
 
             var target = new StringBuilder();
             var index = 0;
@@ -242,7 +244,9 @@ namespace Hestia.Core
         /// <returns></returns>
         public static string JavaScriptDecode(string source, IEnumerable<char> PreserveEscapeSet)
         {
-            if(PreserveEscapeSet is null) { throw new ArgumentNullException(nameof(PreserveEscapeSet)); }
+            ArgumentNullException.ThrowIfNull(PreserveEscapeSet);
+
+            if (string.IsNullOrEmpty(source)) { return source; }
 
             var target = new StringBuilder();
             var index = 0;
